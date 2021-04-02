@@ -1,0 +1,25 @@
+{
+    "name": "syphon-syntax",
+    "displayName": "Syphon syntax highlighting",
+    "description": "Syntax highlighting extension for Syphon",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.55.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "syphon",
+            "aliases": ["Syphon", "syphon"],
+            "extensions": [".sy"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "syphon",
+            "scopeName": "source.syphon",
+            "path": "./syntaxes/syphon.tmLanguage.json"
+        }]
+    }
+}

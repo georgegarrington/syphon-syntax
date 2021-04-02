@@ -1,0 +1,89 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Syphon",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+		    "include": "#constructor"  
+		},
+		{
+			"include": "#strings"
+		},
+		{
+		    "include": "#inlineComment"
+		},
+		{
+		    "include": "#blockComment"
+		},
+		{
+		    "include": "#operator"
+		},
+		{
+		    "include": "#number"
+		},
+		{
+		    "include": "#ADT"
+		}
+	],
+	"repository": {
+	    "constructor": {
+	        "name" : "control.keyword.syphon",
+	        "match": "[A-Z]"
+	    },
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.syphon",
+				"match": "\\b(module|where|import|match|with|type|alias|optional|cond|if|then|else|let|in|trait|exhibits|provided)\\b"
+			}]
+		},
+		"strings": {
+			"name": "string.quoted.double.syphon",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.syphon",
+					"match": "\\\\."
+				}
+			]
+		},
+		"inlineComment": {
+		    "patterns": [
+		        {
+		            "name": "comment.syphon",
+                    "match": "--.*\n"
+		        }
+		    ]
+		},
+		"operator": {
+		    "patterns": [{
+	            "name": "keyword.operator.syphon",
+                "match": "(\\+\\+)|(\\+)|(\\*)|(\\|\\|)|(&&)|(\\[\\]\\<\\<)|(\\$\\<\\<)|(->)|(=)|(\\:\\:)|(\\:)|(\\|)|(/)|(\\-)"
+	        }]
+		},
+		"blockComment": {
+		    "name": "comment.syphon",
+		    "begin": "{-",
+		    "end": "-}"
+		},
+		"ADT": {
+		    "name": "cobstant.numeric.syphon",
+		    "begin": "[A-Z]",
+		    "end": "[a-z][ ]"
+		},
+		"number" : {
+		    "patterns": [
+		    {
+		        "name": "constant.numeric.syphon",
+		        "match": "(?<![a-zA-Z])[0-9](?![a-zA-Z])"
+		    },
+		    {
+		        "name": "constant.character.syphon",
+		        "match": "\\'[a-zA-Z]\\'"
+		    }]
+		}
+	},
+	"scopeName": "source.syphon"
+}
