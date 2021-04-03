@@ -38,16 +38,24 @@
 			"patterns": [{
 				"name": "markup.heading.syphon",
 				"match": "([a-z].*(?=::))"
+				},
+				{
+				"name": "storage.type.syphon",
+				"match": "(?<=type)[ ]*[A-Za-z0-9]+"
 				}]
 		},
 		"typeSig": {
 			"name": "keyword.operator.syphon",
-			"begin": "(?<=::)",
+			"begin": "alias|(?<=::)",
 			"end": "\n",
 			"patterns": [
 				{
 					"name": "storage.type.syphon",
 					"match": "[A-Z][a-zA-Z0-9]+"
+				},
+				{
+					"name": "variable.other.syphon",
+					"match": "[\\[\\]\\(\\),]|([ ][a-z])"
 				}
 			]
 		},
