@@ -3,10 +3,16 @@
 	"name": "Syphon",
 	"patterns": [
 		{
+			"include": "#typeName"
+		},
+		{
+			"include": "#typeSig"
+		},
+		{
 			"include": "#keywords"
 		},
 		{
-		    "include": "#constructor"  
+		    "include": "#constructor"
 		},
 		{
 			"include": "#strings"
@@ -28,9 +34,26 @@
 		}
 	],
 	"repository": {
+		"typeName": {
+			"patterns": [{
+				"name": "markup.heading.syphon",
+				"match": "([a-z].*(?=::))"
+				}]
+		},
+		"typeSig": {
+			"name": "keyword.operator.syphon",
+			"begin": "(?<=::)",
+			"end": "\n",
+			"patterns": [
+				{
+					"name": "storage.type.syphon",
+					"match": "[A-Z][a-zA-Z0-9]+"
+				}
+			]
+		},
 	    "constructor": {
-	        "name" : "control.keyword.syphon",
-	        "match": "[A-Z]"
+	        "patterns": [{"name" : "constant.numeric.syphon",
+	        "match": "(?<![A-Za-z0-9])[A-Z][a-zA-Z0-9]*"}]
 	    },
 		"keywords": {
 			"patterns": [{
@@ -53,7 +76,7 @@
 		    "patterns": [
 		        {
 		            "name": "comment.syphon",
-                    "match": "--.*\n"
+                "match": "--.*\n"
 		        }
 		    ]
 		},
